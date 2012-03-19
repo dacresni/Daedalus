@@ -13,3 +13,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_actionOpen_triggered()
+{
+    //open file dialog
+}
+
+void MainWindow::on_actionNew_Sheet_triggered()
+{
+   //add a new spreadsheet to the pageList documentTree
+}
