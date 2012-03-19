@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>601</width>
-      <height>491</height>
+      <width>741</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -34,7 +34,7 @@
       <rect>
        <x>13</x>
        <y>13</y>
-       <width>681</width>
+       <width>711</width>
        <height>501</height>
       </rect>
      </property>
@@ -49,14 +49,14 @@
      </property>
      <widget class="QToolBox" name="Navigation">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Sheets">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>154</width>
+         <width>161</width>
          <height>433</height>
         </rect>
        </property>
@@ -82,15 +82,13 @@
          <bool>false</bool>
         </attribute>
        </widget>
-       <zorder>textBrowser</zorder>
-       <zorder>treeView</zorder>
       </widget>
       <widget class="QWidget" name="Inspector">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>154</width>
+         <width>161</width>
          <height>433</height>
         </rect>
        </property>
