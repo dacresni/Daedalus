@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>745</width>
-    <height>602</height>
+    <width>757</width>
+    <height>620</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,17 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-60</x>
       <y>0</y>
-      <width>741</width>
-      <height>541</height>
+      <width>801</width>
+      <height>551</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -32,22 +38,22 @@
     <widget class="QSplitter" name="splitter">
      <property name="geometry">
       <rect>
-       <x>13</x>
-       <y>13</y>
-       <width>711</width>
-       <height>501</height>
+       <x>70</x>
+       <y>0</y>
+       <width>731</width>
+       <height>541</height>
       </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <widget class="QToolBox" name="Navigation">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -56,20 +62,20 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>161</width>
-         <height>433</height>
+         <width>318</width>
+         <height>473</height>
         </rect>
        </property>
        <attribute name="label">
         <string>Page 1</string>
        </attribute>
-       <widget class="QTreeView" name="treeView">
+       <widget class="QTreeWidget" name="documentTree">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>131</width>
-          <height>401</height>
+          <width>201</width>
+          <height>471</height>
          </rect>
         </property>
         <property name="accessibleName">
@@ -78,9 +84,23 @@
         <property name="accessibleDescription">
          <string>worksheets and their tables</string>
         </property>
-        <attribute name="headerCascadingSectionResizes">
-         <bool>false</bool>
-        </attribute>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::InternalMove</enum>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="animated">
+         <bool>true</bool>
+        </property>
+        <property name="headerHidden">
+         <bool>true</bool>
+        </property>
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
        </widget>
       </widget>
       <widget class="QWidget" name="Inspector">
@@ -88,8 +108,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>161</width>
-         <height>433</height>
+         <width>318</width>
+         <height>473</height>
         </rect>
        </property>
        <attribute name="label">
@@ -98,10 +118,10 @@
        <widget class="QGroupBox" name="groupBox">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>120</width>
-          <height>381</height>
+          <x>20</x>
+          <y>-10</y>
+          <width>181</width>
+          <height>481</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -116,10 +136,49 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QGraphicsView" name="tableSpace">
-      <property name="toolTip">
-       <string>Table Area</string>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>406</width>
+        <height>541</height>
+       </size>
+      </property>
+      <widget class="QWidget" name="page">
+       <widget class="QGraphicsView" name="graphicsView">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>401</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>401</width>
+          <height>531</height>
+         </size>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QGraphicsView" name="graphicsView_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>401</width>
+          <height>531</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -129,7 +188,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>745</width>
+     <width>757</width>
      <height>22</height>
     </rect>
    </property>
