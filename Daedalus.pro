@@ -12,12 +12,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    classes/maindocument.cpp \
-    classes/documenttreemodel.cpp
+    documenttreeitem.cpp
 
 HEADERS  += mainwindow.h \
-    classes/maindocument.h \
-    classes/documenttreemodel.h
+    documenttreeitem.h
 
 FORMS    += mainwindow.ui
 

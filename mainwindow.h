@@ -1,10 +1,15 @@
-    #ifndef MAINWINDOW_H
+#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTreeWidget>
 class QAction;
-class MainDocument;
 class QUndoStack;
+class QTreeWidget;
+class QTreeWidgetItem;
+class QString;
+
+
 
 namespace Ui {
 class MainWindow;
@@ -24,11 +29,18 @@ private slots:
 
     void on_actionNew_Sheet_triggered();
 
+    void on_actionNew_triggered();
+
 private:
     Ui::MainWindow *ui;
-    MainDocument *Document;
     QUndoStack *undoStack;
+    QTreeWidget *documentTree;
+    QString currentFile;
 
+    bool maybeSave();
+
+    static const int  leafType = QTreeWidgetItem::UserType+1;
+    static const int pageType = QTreeWidgetItem::UserType;
 
 };
 
