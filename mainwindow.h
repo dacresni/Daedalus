@@ -8,7 +8,7 @@ class QUndoStack;
 class QTreeWidget;
 class QTreeWidgetItem;
 class QString;
-
+class QFileDialog;
 
 
 namespace Ui {
@@ -31,10 +31,12 @@ private slots:
 
     void on_actionNew_triggered();
 
+    void on_documentTree_itemChanged(QTreeWidgetItem *item, int column);
+
 private:
     Ui::MainWindow *ui;
     QUndoStack *undoStack;
-    QTreeWidget *documentTree;
+    QTreeWidget *docTree;
     QString currentFile;
 
     bool maybeSave();

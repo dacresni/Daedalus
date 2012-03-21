@@ -11,11 +11,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    documenttreeitem.cpp
+        mainwindow.cpp
 
-HEADERS  += mainwindow.h \
-    documenttreeitem.h
+HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 

@@ -1,17 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "documenttreeitem.h"
-
+#include <QDebug>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    documentTree = ui->documentTree;
+    //docTree = ui->documentTree;
     //read recent files to populate recent files menu
     //read preferences
-
-
 
 }
 
@@ -19,7 +16,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+/*
 bool MainWindow::maybeSave()
  {
      if (textEdit->document()->isModified()) {
@@ -35,24 +32,24 @@ bool MainWindow::maybeSave()
      }
      return true;
  }
-
-
+*/
 void MainWindow::on_actionOpen_triggered()
 {
-    if (maybeSave()) {
+    /*if (maybeSave()) {
         QString fileName = QFileDialog::getOpenFileName(this);
         if (!fileName.isEmpty())
             loadFile(fileName);
-    }
+    }*/
 
 }
-
 
 void MainWindow::on_actionNew_Sheet_triggered()
 {
    //add a new spreadsheet to the pageList documentTree
-  //  ui->documentTree->addTopLevelItem( new DocumentTreeItem(type = DocumentTreeItem::pageType));
-    ui->documentTree->addTopLevelItem( new DocumentTreeItem(type = QTreeWidget::pageType));
+    QTreeWidgetItem* page= new QTreeWidgetItem(QStringList() <<"Blank Page" );
+    page->setIcon(1, QIcon(":/images/cut.png"));
+    ui->documentTree->addTopLevelItem(page);
+
 }
 
 void MainWindow::on_actionNew_triggered()
@@ -60,3 +57,8 @@ void MainWindow::on_actionNew_triggered()
     //new document
 }
 
+
+void MainWindow::on_documentTree_itemChanged(QTreeWidgetItem *item, int column)
+{
+    qDebug() <<"docTree item changed";
+}

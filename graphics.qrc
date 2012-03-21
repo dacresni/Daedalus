@@ -1,1 +1,6 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/graphics">
+        <file>graphics/pageIcon.svg</file>
+        <file>graphics/table.png</file>
+    </qresource>
+</RCC>
