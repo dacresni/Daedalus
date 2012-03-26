@@ -3,13 +3,15 @@
 
 #include <QMainWindow>
 #include <QTreeWidget>
+#include <QGraphicsView>
 class QAction;
 class QUndoStack;
 class QTreeWidget;
 class QTreeWidgetItem;
 class QString;
 class QFileDialog;
-
+class QGraphicsScene;
+class QGraphicsView;
 
 namespace Ui {
 class MainWindow;
@@ -33,11 +35,16 @@ private slots:
 
     void on_documentTree_itemChanged(QTreeWidgetItem *item, int column);
 
+    //void on_pageStack_currentChanged(int arg1);
+
+    void on_documentTree_itemActivated(QTreeWidgetItem *item, int column);
+
 private:
     Ui::MainWindow *ui;
     QUndoStack *undoStack;
     QTreeWidget *docTree;
     QString currentFile;
+    QGraphicsScene scene;
 
     bool maybeSave();
 

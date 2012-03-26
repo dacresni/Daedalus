@@ -62,7 +62,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>318</width>
+         <width>114</width>
          <height>473</height>
         </rect>
        </property>
@@ -74,9 +74,21 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>201</width>
+          <width>131</width>
           <height>471</height>
          </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1677</width>
+          <height>1677</height>
+         </size>
         </property>
         <property name="accessibleName">
          <string>Worksheets</string>
@@ -94,10 +106,10 @@
          <bool>true</bool>
         </property>
         <property name="headerHidden">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <attribute name="headerVisible">
-         <bool>true</bool>
+         <bool>false</bool>
         </attribute>
         <column>
          <property name="text">
@@ -111,7 +123,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>318</width>
+         <width>114</width>
          <height>473</height>
         </rect>
        </property>
@@ -123,7 +135,7 @@
          <rect>
           <x>20</x>
           <y>-10</y>
-          <width>181</width>
+          <width>131</width>
           <height>481</height>
          </rect>
         </property>
@@ -139,7 +151,7 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QStackedWidget" name="pageStack">
       <property name="sizePolicy">
        <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
         <horstretch>0</horstretch>
@@ -152,36 +164,11 @@
         <height>541</height>
        </size>
       </property>
-      <widget class="QWidget" name="page">
-       <widget class="QGraphicsView" name="graphicsView">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>10</y>
-          <width>401</width>
-          <height>531</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>401</width>
-          <height>531</height>
-         </size>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="page_2">
-       <widget class="QGraphicsView" name="graphicsView_2">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>401</width>
-          <height>531</height>
-         </rect>
-        </property>
-       </widget>
-      </widget>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="widget"/>
+      <widget class="QWidget" name="widget_2"/>
      </widget>
     </widget>
    </widget>

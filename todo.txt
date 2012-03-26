@@ -1,0 +1,4 @@
+new page size dialog
+treewidget item display dialog
+modal item properties widget for displaying and changing selected item properties
+set staked widget index to

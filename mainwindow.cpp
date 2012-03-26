@@ -6,10 +6,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //docTree = ui->documentTree;
+    //documentTree = ui->documentTree;
+    QGraphicsView * pageView = new QGraphicsView(&scene);
+    ui->pageStack->addWidget(pageView);
+    ui->pageStack->setCurrentWidget(pageView);
+    pageView->setBackgroundBrush(Qt::white);
+    pageView->show();
     //read recent files to populate recent files menu
     //read preferences
-
 }
 
 MainWindow::~MainWindow()
@@ -46,11 +50,13 @@ void MainWindow::on_actionOpen_triggered()
 void MainWindow::on_actionNew_Sheet_triggered()
 {
    //add a new spreadsheet to the pageList documentTree
-    QTreeWidgetItem* page= new QTreeWidgetItem(QStringList() <<"Blank Page" );
-    page->setIcon(1, QIcon(":/images/cut.png"));
+    QTreeWidgetItem* page= new QTreeWidgetItem();
+    page->setText(1,"New Page") ;
+    page->setIcon(0, QIcon(":/images/cut.png"));
     ui->documentTree->addTopLevelItem(page);
-
-}
+    //we can define a new widget to display the item using
+    // page->setWidget()
+    }
 
 void MainWindow::on_actionNew_triggered()
 {
@@ -61,4 +67,12 @@ void MainWindow::on_actionNew_triggered()
 void MainWindow::on_documentTree_itemChanged(QTreeWidgetItem *item, int column)
 {
     qDebug() <<"docTree item changed";
+}
+
+
+
+void MainWindow::on_documentTree_itemActivated(QTreeWidgetItem *item, int column)
+{
+    int index= ui->documentTree->indexOfTopLevelItem(item);
+    ui->pageStack->setCurrentIndex(index);
 }
