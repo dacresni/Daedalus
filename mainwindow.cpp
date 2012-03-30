@@ -6,12 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //documentTree = ui->documentTree;
-    QGraphicsView * pageView = new QGraphicsView(&scene);
-    ui->pageStack->addWidget(pageView);
-    ui->pageStack->setCurrentWidget(pageView);
-    pageView->setBackgroundBrush(Qt::white);
-    pageView->show();
+
+    newSceneViewItem("new Page");
     //read recent files to populate recent files menu
     //read preferences
 }
@@ -37,6 +33,28 @@ bool MainWindow::maybeSave()
      return true;
  }
 */
+void MainWindow::newSceneViewItem(QString name)
+{
+//add a new spreadsheet to the pageList documentTree
+ QTreeWidgetItem* page= new QTreeWidgetItem();
+ page->setText(0,name);
+ page->setIcon(1, QIcon(":graphics/pageIcon.svg"));
+ ui->documentTree->addTopLevelItem(page);
+ qDebug() <<"add new doc to tree";
+ QGraphicsScene * scene= new QGraphicsScene ;
+ QGraphicsView * pageView = new QGraphicsView(scene);
+ //sceneList.append(scene);
+ ui->pageStack->addWidget(pageView);
+ ui->pageStack->setCurrentWidget(pageView);
+ pageView->setBackgroundBrush(Qt::white);
+ //pageView->setRect()
+ pageView->show();
+ qDebug() <<"add new page view ";
+//we can define a new widget to display the item using
+ // page->setWidget()
+}
+
+
 void MainWindow::on_actionOpen_triggered()
 {
     /*if (maybeSave()) {
@@ -49,14 +67,8 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionNew_Sheet_triggered()
 {
-   //add a new spreadsheet to the pageList documentTree
-    QTreeWidgetItem* page= new QTreeWidgetItem();
-    page->setText(1,"New Page") ;
-    page->setIcon(0, QIcon(":/images/cut.png"));
-    ui->documentTree->addTopLevelItem(page);
-    //we can define a new widget to display the item using
-    // page->setWidget()
-    }
+  newSceneViewItem("Blank Page");
+}
 
 void MainWindow::on_actionNew_triggered()
 {
@@ -70,9 +82,12 @@ void MainWindow::on_documentTree_itemChanged(QTreeWidgetItem *item, int column)
 }
 
 
-
 void MainWindow::on_documentTree_itemActivated(QTreeWidgetItem *item, int column)
 {
     int index= ui->documentTree->indexOfTopLevelItem(item);
     ui->pageStack->setCurrentIndex(index);
+    QWidget* currentView = ui->pageStack->currentWidget();
+    currentView->show();
+    qDebug() <<"item activated";
+    qDebug()<<index;
 }

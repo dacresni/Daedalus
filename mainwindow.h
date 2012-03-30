@@ -35,8 +35,6 @@ private slots:
 
     void on_documentTree_itemChanged(QTreeWidgetItem *item, int column);
 
-    //void on_pageStack_currentChanged(int arg1);
-
     void on_documentTree_itemActivated(QTreeWidgetItem *item, int column);
 
 private:
@@ -44,10 +42,9 @@ private:
     QUndoStack *undoStack;
     QTreeWidget *docTree;
     QString currentFile;
-    QGraphicsScene scene;
-
+    //QList<GraphicsScene> sceneList;
+    void newSceneViewItem(QString);
     bool maybeSave();
-
     static const int  leafType = QTreeWidgetItem::UserType+1;
     static const int pageType = QTreeWidgetItem::UserType;
 
