@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QGraphicsView>
+#include <QStackedLayout>
+
 class QAction;
 class QUndoStack;
 class QTreeWidget;
@@ -12,6 +14,7 @@ class QString;
 class QFileDialog;
 class QGraphicsScene;
 class QGraphicsView;
+class QStackedLayout;
 
 namespace Ui {
 class MainWindow;
@@ -37,16 +40,20 @@ private slots:
 
     void on_documentTree_itemActivated(QTreeWidgetItem *item, int column);
 
+    void debugChanged(int index);
+
+
 private:
     Ui::MainWindow *ui;
     QUndoStack *undoStack;
     QTreeWidget *docTree;
     QString currentFile;
+    QStackedLayout * pageStack;
     //QList<GraphicsScene> sceneList;
-    void newSceneViewItem(QString);
+    void newSceneViewItem(QString, QColor background);
     bool maybeSave();
-    static const int  leafType = QTreeWidgetItem::UserType+1;
-    static const int pageType = QTreeWidgetItem::UserType;
+    //static const int  leafType = QTreeWidgetItem::UserType+1;
+    //static const int pageType = QTreeWidgetItem::UserType;
 
 };
 

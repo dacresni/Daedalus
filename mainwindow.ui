@@ -14,163 +14,65 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QFrame" name="frame">
+   <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
-      <x>-60</x>
+      <x>0</x>
       <y>0</y>
-      <width>801</width>
-      <height>551</height>
+      <width>761</width>
+      <height>571</height>
      </rect>
     </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QSplitter" name="splitter">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>0</y>
-       <width>731</width>
-       <height>541</height>
-      </rect>
+    <widget class="QToolBox" name="toolbox">
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QToolBox" name="Navigation">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+     <widget class="QWidget" name="page">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>292</width>
+        <height>503</height>
+       </rect>
       </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="Sheets">
+      <attribute name="label">
+       <string>Page 1</string>
+      </attribute>
+      <widget class="QTreeWidget" name="documentTree">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>114</width>
-         <height>473</height>
+         <width>291</width>
+         <height>501</height>
         </rect>
        </property>
-       <attribute name="label">
-        <string>Page 1</string>
-       </attribute>
-       <widget class="QTreeWidget" name="documentTree">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>131</width>
-          <height>471</height>
-         </rect>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
         </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>1677</width>
-          <height>1677</height>
-         </size>
-        </property>
-        <property name="accessibleName">
-         <string>Worksheets</string>
-        </property>
-        <property name="accessibleDescription">
-         <string>worksheets and their tables</string>
-        </property>
-        <property name="dragDropMode">
-         <enum>QAbstractItemView::InternalMove</enum>
-        </property>
-        <property name="sortingEnabled">
-         <bool>true</bool>
-        </property>
-        <property name="animated">
-         <bool>true</bool>
-        </property>
-        <property name="headerHidden">
-         <bool>true</bool>
-        </property>
-        <attribute name="headerVisible">
-         <bool>false</bool>
-        </attribute>
-        <column>
-         <property name="text">
-          <string notr="true">1</string>
-         </property>
-        </column>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="Inspector">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>114</width>
-         <height>473</height>
-        </rect>
-       </property>
-       <attribute name="label">
-        <string>Page 2</string>
-       </attribute>
-       <widget class="QGroupBox" name="groupBox">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>-10</y>
-          <width>131</width>
-          <height>481</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="title">
-         <string>Inspector</string>
-        </property>
-       </widget>
+       </column>
       </widget>
      </widget>
-     <widget class="QStackedWidget" name="pageStack">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+     <widget class="QWidget" name="page_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>292</width>
+        <height>503</height>
+       </rect>
       </property>
-      <property name="minimumSize">
-       <size>
-        <width>406</width>
-        <height>541</height>
-       </size>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="widget"/>
-      <widget class="QWidget" name="widget_2"/>
+      <attribute name="label">
+       <string>Page 2</string>
+      </attribute>
      </widget>
     </widget>
+    <widget class="QWidget" name="stackHolder" native="true"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -266,4 +168,7 @@
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
+ <slots>
+  <slot>debugMessage(Qstring)</slot>
+ </slots>
 </ui>
