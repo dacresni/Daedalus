@@ -9,8 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     //read recent files to populate recent files menu
     pageStack= new QStackedLayout(ui->stackHolder);
-    newSceneViewItem("New Page",Qt::white);
-    connect(pageStack,SIGNAL(currentChanged(int)), this,SLOT(debugChanged(int )));
+    newSceneViewItem("New Page");
     //read preference
 
 }
@@ -36,7 +35,7 @@ bool MainWindow::maybeSave()
      return true;
  }
 */
-void MainWindow::newSceneViewItem(QString name,QColor background)
+void MainWindow::newSceneViewItem(QString name)
 {
 //add a new spreadsheet to the documentTree
  QTreeWidgetItem* page= new QTreeWidgetItem();
@@ -48,11 +47,9 @@ void MainWindow::newSceneViewItem(QString name,QColor background)
  QGraphicsView * pageView = new QGraphicsView(scene);
  int index = pageStack->addWidget(pageView);
  pageStack->setCurrentWidget(pageView);
- scene->setBackgroundBrush(background);
+ scene->setBackgroundBrush(Qt::white);
  QString text= QString("page %1").arg(index);
  scene->addText(text);
- //pageView->setRect()
- //pageView->show();
  qDebug() <<"add new page view ";
 //we can define a new widget to display the item using
  // page->setWidget()
@@ -71,7 +68,7 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionNew_Sheet_triggered()
 {
-  newSceneViewItem("Blank Page",Qt::blue);
+  newSceneViewItem("Blank Page");
 }
 
 void MainWindow::on_actionNew_triggered()

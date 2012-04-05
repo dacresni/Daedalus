@@ -50,7 +50,7 @@ private:
     QString currentFile;
     QStackedLayout * pageStack;
     //QList<GraphicsScene> sceneList;
-    void newSceneViewItem(QString, QColor background);
+    void newSceneViewItem(QString);
     bool maybeSave();
     //static const int  leafType = QTreeWidgetItem::UserType+1;
     //static const int pageType = QTreeWidgetItem::UserType;
