@@ -41,14 +41,16 @@ void MainWindow::newSceneViewItem(QString name,QColor background)
 //add a new spreadsheet to the documentTree
  QTreeWidgetItem* page= new QTreeWidgetItem();
  page->setText(0,name);
- page->setIcon(1, QIcon(":graphics/pageIcon.svg"));
+ //page->setIcon(1, QIcon(":graphics/pageIcon.svg"));
  ui->documentTree->addTopLevelItem(page);
  qDebug() <<"add new doc to tree";
  QGraphicsScene * scene= new QGraphicsScene ;
  QGraphicsView * pageView = new QGraphicsView(scene);
- pageStack->addWidget(pageView);
+ int index = pageStack->addWidget(pageView);
  pageStack->setCurrentWidget(pageView);
  scene->setBackgroundBrush(background);
+ QString text= QString("page %1").arg(index);
+ scene->addText(text);
  //pageView->setRect()
  //pageView->show();
  qDebug() <<"add new page view ";

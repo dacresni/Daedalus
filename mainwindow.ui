@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>620</height>
+    <width>752</width>
+    <height>646</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,6 +27,12 @@
      <enum>Qt::Horizontal</enum>
     </property>
     <widget class="QToolBox" name="toolbox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -35,8 +41,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>292</width>
-        <height>503</height>
+        <width>332</width>
+        <height>499</height>
        </rect>
       </property>
       <attribute name="label">
@@ -63,8 +69,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>292</width>
-        <height>503</height>
+        <width>332</width>
+        <height>499</height>
        </rect>
       </property>
       <attribute name="label">
@@ -80,8 +86,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>757</width>
-     <height>22</height>
+     <width>752</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
