@@ -5,6 +5,7 @@
 #include <QTreeWidget>
 #include <QGraphicsView>
 #include <QStackedLayout>
+#include <QTableWidget>
 
 class QAction;
 class QUndoStack;
@@ -15,6 +16,7 @@ class QFileDialog;
 class QGraphicsScene;
 class QGraphicsView;
 class QStackedLayout;
+class QTableWidget;
 
 namespace Ui {
 class MainWindow;
@@ -42,6 +44,8 @@ private slots:
 
     void debugChanged(int index);
 
+
+    void on_actionAddTable_triggered();
 
 private:
     Ui::MainWindow *ui;

@@ -10,8 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //read recent files to populate recent files menu
     pageStack= new QStackedLayout(ui->stackHolder);
     newSceneViewItem("New Page");
-    //read preference
-
+    //read preferences
 }
 
 MainWindow::~MainWindow()
@@ -43,7 +42,7 @@ void MainWindow::newSceneViewItem(QString name)
  //page->setIcon(1, QIcon(":graphics/pageIcon.svg"));
  ui->documentTree->addTopLevelItem(page);
  qDebug() <<"add new doc to tree";
- QGraphicsScene * scene= new QGraphicsScene ;
+ QGraphicsScene * scene= new QGraphicsScene;
  QGraphicsView * pageView = new QGraphicsView(scene);
  int index = pageStack->addWidget(pageView);
  pageStack->setCurrentWidget(pageView);
@@ -93,4 +92,17 @@ void MainWindow::on_documentTree_itemActivated(QTreeWidgetItem *item, int column
     pageStack->setCurrentIndex(index);
     qDebug() <<"item activated";
     qDebug()<<index;
+}
+
+void MainWindow::on_actionAddTable_triggered()
+{
+    //add table
+    QTableWidget* newTable = new QTableWidget( 3, 3);
+    newTable->setHorizontalHeaderLabels(QStringList()<<"1"<<"2"<<"3");
+    newTable->setVerticalHeaderLabels(QStringList()<<"A"<<"B"<<"C");
+    // row mod(26) = letter
+    QWidget * thisPage = pageStack->currentWidget();
+    QGraphicsView * thePage = dynamic_cast<QGraphicsView*>(thisPage);
+    QGraphicsScene* thisScene = thePage->scene();
+    thisScene->addWidget(newTable);
 }
