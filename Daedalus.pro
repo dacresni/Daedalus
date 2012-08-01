@@ -11,9 +11,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    tableproxy.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    tableproxy.h
 
 FORMS    += mainwindow.ui
 

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include <QFocusFrame>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -36,22 +37,22 @@ bool MainWindow::maybeSave()
 */
 void MainWindow::newSceneViewItem(QString name)
 {
-//add a new spreadsheet to the documentTree
- QTreeWidgetItem* page= new QTreeWidgetItem();
- page->setText(0,name);
- //page->setIcon(1, QIcon(":graphics/pageIcon.svg"));
- ui->documentTree->addTopLevelItem(page);
- qDebug() <<"add new doc to tree";
- QGraphicsScene * scene= new QGraphicsScene;
- QGraphicsView * pageView = new QGraphicsView(scene);
- int index = pageStack->addWidget(pageView);
- pageStack->setCurrentWidget(pageView);
- scene->setBackgroundBrush(Qt::white);
- QString text= QString("page %1").arg(index);
- scene->addText(text);
- qDebug() <<"add new page view ";
-//we can define a new widget to display the item using
- // page->setWidget()
+    //add a new spreadsheet to the documentTree
+    QTreeWidgetItem* page= new QTreeWidgetItem();
+    page->setText(0,name);
+    //page->setIcon(1, QIcon(":graphics/pageIcon.svg"));
+    ui->documentTree->addTopLevelItem(page);
+    qDebug() <<"add new doc to tree";
+    QGraphicsScene * scene= new QGraphicsScene;
+    QGraphicsView * pageView = new QGraphicsView(scene);
+    int index = pageStack->addWidget(pageView);
+    pageStack->setCurrentWidget(pageView);
+    scene->setBackgroundBrush(Qt::white);
+    QString text= QString("page %1").arg(index);
+    scene->addText(text);
+    qDebug() <<"add new page view ";
+    //we can define a new widget to display the item using
+    // page->setWidget()
 }
 
 
@@ -100,9 +101,14 @@ void MainWindow::on_actionAddTable_triggered()
     QTableWidget* newTable = new QTableWidget( 3, 3);
     newTable->setHorizontalHeaderLabels(QStringList()<<"1"<<"2"<<"3");
     newTable->setVerticalHeaderLabels(QStringList()<<"A"<<"B"<<"C");
+    qDebug() <<" table labled";
     // row mod(26) = letter
     QWidget * thisPage = pageStack->currentWidget();
     QGraphicsView * thePage = dynamic_cast<QGraphicsView*>(thisPage);
-    QGraphicsScene* thisScene = thePage->scene();
-    thisScene->addWidget(newTable);
+    QGraphicsScene * thisScene = thePage->scene();
+    qDebug() << "scene aquired ";
+    QFocusFrame * tableProxy = new QFocusFrame(newTable);
+    qDebug() << "new frame";
+    thisScene->addWidget( newTable);
+    qDebug() <<"table added";
 }

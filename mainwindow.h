@@ -17,7 +17,7 @@ class QGraphicsScene;
 class QGraphicsView;
 class QStackedLayout;
 class QTableWidget;
-
+class QGraphicsItem;
 namespace Ui {
 class MainWindow;
 }
@@ -44,8 +44,8 @@ private slots:
 
     void debugChanged(int index);
 
-
     void on_actionAddTable_triggered();
+
 
 private:
     Ui::MainWindow *ui;
