@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QGraphicsView>
+#include <QGraphicsScene>
 #include <QStackedLayout>
 #include <QTableWidget>
 

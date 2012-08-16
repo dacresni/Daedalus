@@ -1,7 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
-#include <QFocusFrame>
+#include <QTableWidget>
+#include <QGraphicsItem>
+#include "borderedtable.h"
+#include <QGraphicsProxyWidget>
+
+class QTableWidget;
+class QFocusFrame;
+class QGraphicsProxyWidget;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -95,20 +103,27 @@ void MainWindow::on_documentTree_itemActivated(QTreeWidgetItem *item, int column
     qDebug()<<index;
 }
 
+
 void MainWindow::on_actionAddTable_triggered()
 {
     //add table
     QTableWidget* newTable = new QTableWidget( 3, 3);
-    newTable->setHorizontalHeaderLabels(QStringList()<<"1"<<"2"<<"3");
-    newTable->setVerticalHeaderLabels(QStringList()<<"A"<<"B"<<"C");
-    qDebug() <<" table labled";
-    // row mod(26) = letter
+    //newTable->setHorizontalHeaderLabels(QStringList()<<"1"<<"2"<<"3");
+    //newTable->setVerticalHeaderLabels(QStringList()<<"A"<<"B"<<"C");
+    //qDebug() <<" table labled";
+    // row mod(26) = letter;
     QWidget * thisPage = pageStack->currentWidget();
     QGraphicsView * thePage = dynamic_cast<QGraphicsView*>(thisPage);
     QGraphicsScene * thisScene = thePage->scene();
     qDebug() << "scene aquired ";
-    QFocusFrame * tableProxy = new QFocusFrame(newTable);
-    qDebug() << "new frame";
-    thisScene->addWidget( newTable);
+    BorderedTable * frame = new BorderedTable(newTable);
+    QGraphicsProxyWidget * tableProxy = thisScene->addWidget(newTable);
     qDebug() <<"table added";
+    //qDebug() << "new frame";
+    tableProxy->setFlag(QGraphicsItem::ItemIsMovable, true);
+    tableProxy->setFlag(QGraphicsItem::ItemIsFocusable, true);
+    tableProxy->setFlag(QGraphicsItem::ItemIsSelectable, true);
+    qDebug()<< "set movable";
+    frame->setWidget(newTable);
+    //qDebug()<< "set visible";
 }

@@ -1,4 +1,4 @@
 new page size dialog
 treewidget item display dialog
+get table to move around in graphics view
 modal item properties widget for displaying and changing selected item properties
-set staked widget index to
